@@ -1,5 +1,9 @@
 Revision history for Perl extension HTML::Entities::ImodePictogram.
 
+0.06  Tue Jun 24 01:47:23 JST 2003
+	* Fixed bug "\xF9\xB0" is missing
+	  (Thanks to Satoshi Tanimoto)
+
 0.05  Mon Aug  5 23:26:15 JST 2002
 	* Extended emoji support
 	  (Thanks to Eijiro Koike <hanabusa@edge.co.jp>)

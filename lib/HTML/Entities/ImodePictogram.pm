@@ -2,7 +2,7 @@ package HTML::Entities::ImodePictogram;
 
 use strict;
 use vars qw($VERSION);
-$VERSION = 0.05;
+$VERSION = 0.06;
 
 use vars qw(@ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 require Exporter;
@@ -16,7 +16,7 @@ my $two_bytes = '[\x81-\x9F\xE0-\xFC][\x40-\x7E\x80-\xFC]';
 
 use vars qw($Sjis_re $Pictogram_re $ExtPictorgram_re);
 $Sjis_re      = qr<$one_byte|$two_bytes>;
-$Pictogram_re = '\xF8[\x9F-\xFC]|\xF9[\x40-\x7E\x80-\xAF]';
+$Pictogram_re = '\xF8[\x9F-\xFC]|\xF9[\x40-\x7E\x80-\xB0]';
 $ExtPictorgram_re = '\xF9[\xB1-\xFC]';
 
 sub find_pictogram (\$&) {
@@ -81,8 +81,7 @@ sub _num2cp {
 	     ($num >= 63824 && $num <= 63838) ||
              ($num >= 63858 && $num <= 63870)) {
 	return $num - 4772;
-    } elsif (($num >= 63872 && $num <= 63919) ||
-	     ($num >= 63921 && $num <= 63996)) {
+    } elsif ($num >= 63872 && $num <= 63996) {
 	return $num - 4773;
     } else {
 	return;
